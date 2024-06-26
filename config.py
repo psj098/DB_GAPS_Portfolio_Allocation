@@ -1,0 +1,71 @@
+import numpy as np
+
+split_date = "2021-06-30"
+file_path = "FnGuide Data 0529.csv"
+column_names = [
+    "Date",
+    "KOSPI",
+    "KOSDAQ",
+    "S&P 500",
+    "STOXX 50",
+    "Nikkei 225",
+    "CSI 300",
+    "TB 10Y",
+    "Prime CBonds",
+    "Foreign Bonds",
+    "Gold",
+    "WTI",
+    "KOSPI Short",
+    "US Long",
+    "US Short",
+    "MMF",
+]
+transaction_cost = 0.015 / 100
+momentum_weights = np.arange(0.00, 1.01, 0.05)
+n_assets = len(column_names) - 1  # Exclude date column
+bounds = [(0, 1) for _ in range(n_assets)]
+
+constraints = [
+    {"type": "eq", "fun": lambda weights: np.sum(weights) - 0.99},
+    {"type": "ineq", "fun": lambda weights: np.sum(weights[[0, 1]]) - 0.10},
+    {"type": "ineq", "fun": lambda weights: 0.40 - np.sum(weights[[0, 1]])},
+    {"type": "ineq", "fun": lambda weights: np.sum(weights[[2, 3, 4, 5]]) - 0.10},
+    {"type": "ineq", "fun": lambda weights: 0.40 - np.sum(weights[[2, 3, 4, 5]])},
+    {"type": "ineq", "fun": lambda weights: np.sum(weights[[6, 7, 8]]) - 0.20},
+    {"type": "ineq", "fun": lambda weights: 0.60 - np.sum(weights[[6, 7, 8]])},
+    {"type": "ineq", "fun": lambda weights: np.sum(weights[[9, 10]]) - 0.05},
+    {"type": "ineq", "fun": lambda weights: 0.20 - np.sum(weights[[9, 10]])},
+    {"type": "ineq", "fun": lambda weights: np.sum(weights[[11]])},
+    {"type": "ineq", "fun": lambda weights: 0.20 - np.sum(weights[[11]])},
+    {"type": "ineq", "fun": lambda weights: np.sum(weights[[12, 13]])},
+    {"type": "ineq", "fun": lambda weights: 0.20 - np.sum(weights[[12, 13]])},
+    {"type": "ineq", "fun": lambda weights: weights[0]},
+    {"type": "ineq", "fun": lambda weights: 0.40 - weights[0]},
+    {"type": "ineq", "fun": lambda weights: weights[1]},
+    {"type": "ineq", "fun": lambda weights: 0.20 - weights[1]},
+    {"type": "ineq", "fun": lambda weights: weights[2]},
+    {"type": "ineq", "fun": lambda weights: 0.20 - weights[2]},
+    {"type": "ineq", "fun": lambda weights: weights[3]},
+    {"type": "ineq", "fun": lambda weights: 0.20 - weights[3]},
+    {"type": "ineq", "fun": lambda weights: weights[4]},
+    {"type": "ineq", "fun": lambda weights: 0.20 - weights[4]},
+    {"type": "ineq", "fun": lambda weights: weights[5]},
+    {"type": "ineq", "fun": lambda weights: 0.20 - weights[5]},
+    {"type": "ineq", "fun": lambda weights: weights[6]},
+    {"type": "ineq", "fun": lambda weights: 0.50 - weights[6]},
+    {"type": "ineq", "fun": lambda weights: weights[7]},
+    {"type": "ineq", "fun": lambda weights: 0.40 - weights[7]},
+    {"type": "ineq", "fun": lambda weights: weights[8] - 0.05},
+    {"type": "ineq", "fun": lambda weights: 0.40 - weights[8]},
+    {"type": "ineq", "fun": lambda weights: weights[9]},
+    {"type": "ineq", "fun": lambda weights: 0.15 - weights[9]},
+    {"type": "ineq", "fun": lambda weights: weights[10]},
+    {"type": "ineq", "fun": lambda weights: 0.15 - weights[10]},
+    {"type": "ineq", "fun": lambda weights: weights[11]},
+    {"type": "ineq", "fun": lambda weights: 0.20 - weights[11]},
+    {"type": "ineq", "fun": lambda weights: weights[12]},
+    {"type": "ineq", "fun": lambda weights: 0.20 - weights[12]},
+    {"type": "ineq", "fun": lambda weights: weights[13]},
+    {"type": "ineq", "fun": lambda weights: 0.20 - weights[13]},
+    {"type": "ineq", "fun": lambda weights: weights[14]},
+]
