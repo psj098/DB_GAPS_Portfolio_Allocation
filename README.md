@@ -9,7 +9,7 @@ This project aims to find an optimal portfolio allocation by combining Mean-Vari
 ## Data
 
 The project includes the following data files:
-- `FnGuide Data MMDD.csv`: Financial data as of the date(MMDD) provided
+- `FnGuide Data.csv`: Financial data as of the date provided
 
 ## Results
 
@@ -17,19 +17,19 @@ The project includes the following data files:
 
 The table below shows the optimal portfolio weights for various momentum factors:
 
-![MVO and Momentum Factor Results](mvo_momentum_df.png)
+![MVO and Momentum Factor Results](images/mvo_momentum_df.png)
 
 ### Initial Allocation
 
 The initial asset allocation based on the optimization strategy is illustrated in the bar chart below:
 
-![Initial Allocation](initial_allocation.png)
+![Initial Allocation](images/initial_allocation.png)
 
 ### Effect of Momentum on Cumulative Returns
 
 The cumulative returns of the portfolio using traditional MVO versus MVO enhanced with momentum are shown in the following chart:
 
-![Effect of Momentum on Cumulative Returns](momentum_effect.png)
+![Effect of Momentum on Cumulative Returns](images/momentum_effect.png)
 
 ## Installation
 
