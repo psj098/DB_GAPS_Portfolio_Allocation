@@ -55,11 +55,11 @@ for momentum_weight in momentum_weights:
         results.append([momentum_weight] + [np.nan] * n_assets + [np.nan, np.nan])
 
 column_names_extended = ["Momentum"] + column_names[1:] + ["Annual Return", "Annual Volatility"]
-results_df = pd.DataFrame(results, columns=column_names_extended)
+mvo_momentum_df = pd.DataFrame(results, columns=column_names_extended)
 
-mmf_index = results_df.columns.get_loc("MMF") + 1
-results_df.insert(mmf_index, "Cash", 1.0)
+mmf_index = mvo_momentum_df.columns.get_loc("MMF") + 1
+mvo_momentum_df.insert(mmf_index, "Cash", 1.0)
 
-print(results_df.round(2))
+print(mvo_momentum_df.round(2))
 
-results_df.round(2).to_csv("results_df.csv", encoding="UTF-8-SIG")
+mvo_momentum_df.round(2).to_csv("mvo_momentum_df.csv", encoding="UTF-8-SIG")

@@ -1,7 +1,7 @@
 import numpy as np
 
 split_date = "2021-06-30"
-file_path = "FnGuide Data 0529.csv"
+file_path = "FnGuide Data 0626.csv"
 column_names = [
     "Date",
     "KOSPI",
