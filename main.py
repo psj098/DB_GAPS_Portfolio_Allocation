@@ -17,19 +17,19 @@ cov_matrix = returns.cov() * 252
 
 # Define current weights (previous allocation to account for transaction cost) 
 current_weights = [
-    0.01348,      # KOSPI
-    0.09078,  # KOSDAQ
-    0.20145,   # S&P 500
-    0.0,      # STOXX 50
-    0.19507,  # Nikkei 225
+    0.19539,  # KOSPI
+    0.14689,  # KOSDAQ
+    0.20029,  # S&P 500
+    0.19969,  # STOXX 50
+    0.0,      # Nikkei 225
     0.0,      # CSI 300
     0.0,      # 국채 10년
     0.0,      # 우량회사채
-    0.20391,  # 해외채권
-    0.14275,   # 금
-    0.05818,  # WTI
+    0.19562,  # 해외채권
+    0.0,      # 금
+    0.05252,  # WTI
     0.0,      # KOSPI Short
-    0.08415,  # US Long
+    0.0,      # US Long
     0.0,      # US Short
     0.0,      # MMF
 ]
